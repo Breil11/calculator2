@@ -12,14 +12,6 @@ jobs:
     steps:
       - name: Récupérer le code source
         uses: actions/checkout@v2
-	
-      - name: intall Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: ^1.16
-	  
-      - name: Installation dependences
-        run: go mod download
 
       - name: Connectez-vous à Docker Hub
         uses: docker/login-action@v1
