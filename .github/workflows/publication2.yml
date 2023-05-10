@@ -10,19 +10,37 @@ jobs:
   build-and-publish-image:
     runs-on: ubuntu-latest
     steps:
-      - name: Récupérer le code source
+    # Étape 1 : Vérifier le code à partir du référentiel
+      - name: Récupération le code source
         uses: actions/checkout@v2
-
-      - name: Connectez-vous à Docker Hub
+      
+   # Étape 2 : Installer Go et les dépendances nécessaires
+      - name: intall Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ^1.16
+      - name: Installation dependences
+        run: go mod download
+        
+   # Étape 3 : Construire et publier les artefacts avec Goreleaser
+      - name: construction et publication des artefacts
+        uses: goreleaser/goreleaser-action@v2
+        with:
+          args: release --rm-dist
+          
+  # Étape 4 : Se connecter sur le hub Docker
+      - name: Connection à Docker Hub
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-
+          
+          
+    # Étape 5 : Construire et pousser l'image Docker sur le hub Docker
       - name: Créer et publier l'image Docker
         uses: docker/build-push-action@v2
         with:
           context: ./super_calculator
           file: ./super_calculator/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/calculator2:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/super_calculator:latest
