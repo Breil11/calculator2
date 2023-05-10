@@ -25,7 +25,8 @@ jobs:
           context: ./super_calculator
           file: ./super_calculator/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/calculator5:latest
+          #tags: ${{ secrets.DOCKER_USERNAME }}/calculator5:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/calculator6:${{ github.ref }}
 
 #
  #     - name: intall Go
