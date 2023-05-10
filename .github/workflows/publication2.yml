@@ -22,7 +22,7 @@ jobs:
       - name: Créer et publier l'image Docker
         uses: docker/build-push-action@v2
         with:
-          context: ./app
-          file: ./app/Dockerfile
+          context: ./super_calculator
+          file: ./super_calculator/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/calculator2:latest
