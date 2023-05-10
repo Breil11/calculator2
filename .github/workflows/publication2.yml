@@ -22,11 +22,7 @@ jobs:
       - name: Installation dependences
         run: go mod download
         
-      # Étape 3 : Construire et publier les artefacts avec Goreleaser
-      - name: construction et publication des artefacts
-        uses: goreleaser/goreleaser-action@v2
-        with:
-          args: release --rm-dist
+      
           
       # Étape 4 : Se connecter sur le hub Docker
       - name: Connection à Docker Hub
