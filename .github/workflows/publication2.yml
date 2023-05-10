@@ -19,10 +19,9 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: ^1.16
+	  
       - name: Installation dependences
         run: go mod download
-
-
 
       #se connecter sur le hub docker
       - name: Connectez-vous à Docker Hub
