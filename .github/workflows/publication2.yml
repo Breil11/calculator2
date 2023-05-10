@@ -26,3 +26,11 @@ jobs:
           file: ./super_calculator/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/calculator3:latest
+      
+      - name: Release with goreleaser
+        uses: goreleaser/goreleaser-action@v2
+        with:
+          args: release --skip-publish
+        env:
+            GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+            GITHUB_PASSWORD: ${{ secrets.GITHUB_PASSWORD }}
