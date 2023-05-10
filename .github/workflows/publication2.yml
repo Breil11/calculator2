@@ -1,0 +1,27 @@
+name: Publication de l'image Docker
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-publish-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code source
+        uses: actions/checkout@v2
+
+      - name: Connectez-vous à Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Créer et publier l'image Docker
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/calculator2:latest
