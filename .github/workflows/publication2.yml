@@ -14,14 +14,6 @@ jobs:
       - name: Récupérer le code source
         uses: actions/checkout@v2
 
-	# Étape 2 : Installer Go et les dépendances nécessaires
-      - name: intall Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: ^1.16
-	  
-      - name: Installation dependences
-        run: go mod download
 
       #se connecter sur le hub docker
       - name: Connectez-vous à Docker Hub
