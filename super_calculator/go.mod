@@ -1,5 +1,4 @@
-
-module github.com/Breil11/calculator2/super_calculator
+module calculator
 
 go 1.19
 
