@@ -1,4 +1,4 @@
-name: Publication de l'image Docker
+name: Release Workflow
 
 on:
   push:
