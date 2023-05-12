@@ -13,16 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v2
       - name: Set up Go
-        uses: actions/setup-go@v4
-      - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v4
+        uses: actions/setup-go@v2
         with:
-          distribution: goreleaser
-          version: latest
-          args: release --clean
+          go-version: 1.16.x
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v2
+        with:
+          args: release --rm-dist --snapshot # j'ai rajouté l'option --snapshot pour ne pas créer de tag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
