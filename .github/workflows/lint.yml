@@ -14,7 +14,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Analyse statique avec semgrep
-      uses: returntocorp/semgrep-action@v1.4.0
+      uses: returntocorp/semgrep-action@v1
 
     - name: Analyse Dockerfile avec hadolint
       run: |
@@ -22,7 +22,7 @@ jobs:
 
     - name: Exécution de Super-Linter (uniquement sur pull_request)
       if: github.event_name == 'pull_request'
-      uses: github/super-linter@v4.12.0
+      uses: github/super-linter@v4
       with:
         validate_all_codebase: true
         default_branch: main
