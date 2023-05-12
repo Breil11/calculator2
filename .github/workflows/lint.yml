@@ -18,7 +18,7 @@ jobs:
 
     - name: Analyse Dockerfile avec hadolint
       run: |
-        docker run --rm -i hadolint/hadolint < Dockerfile
+        docker run --rm -i hadolint/hadolint < ./super_calculator/Dockerfile
 
     - name: Exécution de Super-Linter (uniquement sur pull_request)
       if: github.event_name == 'pull_request'
