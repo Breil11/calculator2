@@ -29,6 +29,7 @@ jobs:
          run: goreleaser -v
       - name: Get missing module
         run: |
+          go get -u
           go get github.com/Breil11/calculator2/super_calculator/cmd
       - name: Run GoReleaser
         run: |
