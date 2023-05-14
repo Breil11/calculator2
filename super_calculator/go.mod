@@ -1,5 +1,5 @@
 
-module github.com/Breil11/calculator2
+module github.com/Breil11/calculator2/super_calculator
 
 go 1.19
 
@@ -7,7 +7,7 @@ require github.com/spf13/cobra v1.5.0
 
 require (
 
-	github.com/Breil11/calculator2
+	github.com/Breil11/calculator2/super_calculator/cmd v0.0.0
 	github.com/spf13/cobra v1.5.0
 	
 	
