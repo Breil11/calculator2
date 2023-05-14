@@ -36,4 +36,4 @@ jobs:
           #go get github.com/Breil11/calculator2/super_calculator/cmd
       - name: Run GoReleaser
         run: |
-          goreleaser release --snapshot --skip-publish
+          goreleaser release --snapshot --rm-dist 
