@@ -27,8 +27,8 @@ jobs:
           install-only: true
       -  name: Show GoReleaser version
          run: goreleaser -v
-      - name: Get missing module
-        run: go get github.com/Breil11/calculator2/super_calculator/cmd
+      #- name: Get missing module
+       # run: go get github.com/Breil11/calculator2/super_calculator/cmd
       #- name: Get missing module
        # run: |
         #  export GO111MODULE=on
