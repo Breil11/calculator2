@@ -36,5 +36,5 @@ jobs:
           #go get github.com/Breil11/calculator2/super_calculator/cmd
       - name: Run GoReleaser
         run: |
-          go get github.com/Breil11/calculator2/super_calculator/cmd
+          go get github.com/Breil11/calculator2@v1.0.0
           goreleaser release --snapshot 
