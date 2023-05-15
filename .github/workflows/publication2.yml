@@ -34,15 +34,7 @@ jobs:
             tags: ${{ secrets.DOCKER_USERNAME }}/calculator9:${{ env.DOCKER_TAG }}
  
  
-        - name: Créer et publier le conteneur Docker
-          run: |
-            docker create --name calculator-container ${{ secrets.DOCKER_USERNAME }}/calculator9:${{ env.DOCKER_TAG }}
-            docker start calculator-container
-            docker ps
-            docker commit $(docker ps -ql) ${{ secrets.DOCKER_USERNAME }}/calculator-container8:${{ env.DOCKER_TAG }}
-            docker tag ${{ secrets.DOCKER_USERNAME }}/calculator-container8:${{ env.DOCKER_TAG }} ${{ secrets.DOCKER_USERNAME }}/calculator-container8:latest
-            docker push ${{ secrets.DOCKER_USERNAME }}/calculator-container8:${{ env.DOCKER_TAG }}
-            docker push ${{ secrets.DOCKER_USERNAME }}/calculator-container8:latest
+     
 
 #
  #     - name: intall Go
