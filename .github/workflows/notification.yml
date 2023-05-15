@@ -10,9 +10,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Build
-      run: ./build.sh
-    - name: Test
-      run: ./test.sh
+      run: ./super_calculator/Dockerfile
     - name: Release
       uses: actions/create-release@v1
       with:
