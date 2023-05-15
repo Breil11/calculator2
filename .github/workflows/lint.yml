@@ -16,7 +16,7 @@ jobs:
       - name: Analyse statique avec semgrep
         uses: returntocorp/semgrep-action@v1
         with:
-          config: "p/go"
+          config: "p/golang"
           path: "."
           run: |
            docker run --rm -i semgrep/semgrep < ./super_calculator/Dockerfile2
