@@ -1,4 +1,4 @@
-name: Bonus-Notify
+name: Notification
 
 on:
   push:
