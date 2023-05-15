@@ -1,21 +1,21 @@
-name: Bonus1 Notify
-
+name: Bonus1 version gestion
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
-
 jobs:
-  test:
+  release:
     runs-on: ubuntu-latest
-
- 
-
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
-    - name: Notify
-      uses: some-notification-action@v1
+    - name: Build
+      run: ./build.sh
+    - name: Test
+      run: ./test.sh
+    - name: Release
+      uses: actions/create-release@v1
       with:
-        message: 'New code pushed to the repository.'
+        tag_name: v1.0.0
+        release_name: Release v1.0.0
+        body: Release notes
