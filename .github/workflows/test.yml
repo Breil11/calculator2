@@ -30,6 +30,8 @@ jobs:
 
     - name: Run go test
       run: |
+        go get github.com/Breil11/calculator2/super_calculator/cmd@latest
+        go mod download
         go mod download github.com/Breil11/calculator2/super_calculator/cmd
         go list -m github.com/Breil11/calculator2/super_calculator/cmd@v0.0.0
       env:
