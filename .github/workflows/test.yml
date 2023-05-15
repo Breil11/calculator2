@@ -28,5 +28,10 @@ jobs:
     #- name: Install dependencies
       #run: go mod download  #je télécharge les dépendances nécessaires.
 
-    - name: Run tests
-      run: go test ./...    #j'exécute la commande "go test ./..." pour exécuter les tests unitaires sur les fichiers du projet.
+    - name: Run go test
+      run: |
+        go mod download
+        go test ./...
+      env:
+        GO111MODULE: "on"
+   #j'exécute la commande "go test ./..." pour exécuter les tests unitaires sur les fichiers du projet.
