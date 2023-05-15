@@ -30,6 +30,7 @@ jobs:
 
     - name: Run go test
       run: |
+        go mod tidy
         go test ./...
       env:
         GO111MODULE: "on"
