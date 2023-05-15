@@ -10,20 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Analyse statique avec semgrep
-      uses: returntocorp/semgrep-action@v1
+      - name: Analyse statique avec semgrep
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: "p/go"
+          path: "."
+          run: |
+           docker run --rm -i semgrep/semgrep < ./super_calculator/Dockerfile2
 
-    - name: Analyse Dockerfile avec hadolint
-      run: |
-        docker run --rm -i hadolint/hadolint < ./super_calculator/Dockerfile2
+      - name: Analyse Dockerfile avec hadolint
+        run: |
+          docker run --rm -i hadolint/hadolint < ./super_calculator/Dockerfile2
 
-    - name: Exécution de Super-Linter (uniquement sur pull_request)
-      if: github.event_name == 'pull_request'
-      uses: github/super-linter@v4
-      with:
-        validate_all_codebase: true
-        default_branch: main
-        debug: false
+      - name: Exécution de Super-Linter (uniquement sur pull_request)
+        if: github.event_name == 'pull_request'
+        uses: github/super-linter@v4
+        with:
+          validate_all_codebase: true
+          default_branch: main
+          debug: false
