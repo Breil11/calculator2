@@ -42,6 +42,6 @@ jobs:
           default_branch: main
           debug: false
         
-      - name: Sortie si l'événement n'est pas un pull_request
+      - name: Sortie si l'événement n'est pas un pull_request #j'ai rajouté ce step pour automatiquement stopper le workflow après ses steps si l'evenement pull_request n'est pas enclenché
         if: github.event_name != 'pull_request'
         run: exit 0
