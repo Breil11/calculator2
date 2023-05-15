@@ -8,21 +8,22 @@ on:        # le workflow est déclenché pour chaque push sur la branche princip
   workflow_dispatch:
 
 jobs:
-  test:
-    name: Go ${{ matrix.go-version }} Test #on va devoir spécifier la version de Go avec laquelle le travail est lié.
-    runs-on: ubuntu-latest   #L'environnement sur lequel le travail sera exécuté.
-    strategy:
-      matrix:
-        go-version: [1.17, 1.18, 1.19] #on specifie les versions sur lesquelles l'application doit être testée
-
+  #test:
+    #name: Go ${{ matrix.go-version }} Test #on va devoir spécifier la version de Go avec laquelle le travail est lié.
+   # runs-on: ubuntu-latest   #L'environnement sur lequel le travail sera exécuté.
+    #strategy:
+      #matrix:
+       # go-version: [1.17, 1.18, 1.19] #on specifie les versions sur lesquelles l'application doit être testée
+ tests:
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout code    #je vérifie le code source dans mon dépôt.
       uses: actions/checkout@v2
 
-    - name: Set up Go ${{ matrix.go-version }}
+    - name: Set up Go 
       uses: actions/setup-go@v3
       with:
-        go-version: ${{ matrix.go-version }} #je récupère la version de Go à utiliser depuis la matrice de stratégie.
+        go-version: 1.17 1.18 1.19 #je récupère la version de Go à utiliser depuis la matrice de stratégie.
 
     #- name: Install dependencies
       #run: go mod download  #je télécharge les dépendances nécessaires.
