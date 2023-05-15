@@ -41,3 +41,7 @@ jobs:
           validate_all_codebase: true
           default_branch: main
           debug: false
+        
+      - name: Sortie si l'événement n'est pas un pull_request
+        if: github.event_name != 'pull_request'
+        run: exit 0
