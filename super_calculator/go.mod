@@ -7,7 +7,7 @@ require github.com/spf13/cobra v1.5.0
 
 require (
 
-	github.com/Breil11/calculator2/super_calculator/cmd v0.0.0
+	github.com/Breil11/calculator2/super_calculator/cmd
 	github.com/spf13/cobra v1.5.0
 	
 	
