@@ -23,7 +23,7 @@ jobs:
     - name: Set up Go 
       uses: actions/setup-go@v3
       with:
-        go-version: 1.17 1.18 1.19 #je récupère la version de Go à utiliser depuis la matrice de stratégie.
+        go-version: 1.19 #je récupère la version de Go à utiliser depuis la matrice de stratégie.
 
     #- name: Install dependencies
       #run: go mod download  #je télécharge les dépendances nécessaires.
