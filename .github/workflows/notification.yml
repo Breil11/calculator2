@@ -1,4 +1,4 @@
-name: pushed Notification
+name: Run tests
 
 on:
   push:
