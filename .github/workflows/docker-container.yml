@@ -10,7 +10,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Build Docker Image
-      run: docker build -t bk09/calculator2:latest .
+      run: docker build -t bk09/calculator2:latest /home/runner/work/calculator2/super_calcculator/ .
     - name: Login to Docker Hub
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
     - name: Push Docker Container
